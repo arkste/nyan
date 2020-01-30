@@ -18,7 +18,7 @@ const (
 
 func main() {
 	args := os.Args[1:]
-	log.SetLevel(log.FatalLevel)
+	log.SetLevel(log.ErrorLevel)
 
 	if _, err := os.Stat(npmLockFile); !os.IsNotExist(err) { // check if npm lock exists in current directory
 		log.Info("npm lock file found")
@@ -30,7 +30,6 @@ func main() {
 			log.Error(err)
 		}
 		fmt.Printf("%s", out)
-
 	} else if _, err := os.Stat(yarnLockFile); !os.IsNotExist(err) { // check if yarn lock exists in current directory
 		log.Info("yarn lock file found")
 
